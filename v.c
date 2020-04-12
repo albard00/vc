@@ -11965,6 +11965,10 @@ void v__pref__Preferences_fill_with_defaults(v__pref__Preferences* p) {
 }
 
 string v__pref__default_c_compiler() {
+	string env_cc = os__getenv(tos3("CC"));
+	if (string_ne(env_cc, tos3(""))) {
+		return env_cc;
+	}
 	
 #ifdef _WIN32
 	// #if windows
